@@ -11,5 +11,22 @@
     ],
     "featured": true,
     "published": true
+  },
+  {
+    "title": "Luna",
+    "category": "Poema",
+    "date": "2026-07-23",
+    "excerpt": "Hay noches que no dicen nada y, aun así, parecen entenderlo todo. Este poema nace de una de ellas, de mirar hacia arriba y encontrar en la luna un silencio que también sabe acompañar.",
+    "body": "Hay noches en las que el cielo\nparece recordar algo que nosotros olvidamos,\ny entonces apareces tú,\nblanca, distante,\nsuspendida sobre el ruido del mundo.\n\nNo sé qué guardas detrás de tanta luz,\nni cuántos secretos caben\nen la sombra de tus cráteres,\npero hay algo en mirarte\nque vuelve más lento el tiempo.\n\nQuizá sea tu manera de permanecer,\naunque todo abajo cambie,\naunque las ciudades duerman,\naunque las ventanas se apaguen\nuna por una.\n\nA veces pienso\nque la noche no sería noche sin ti,\nque necesita de tu silencio\npara no sentirse vacía.\n\nY yo sólo te observo,\ndesde este pequeño rincón terrestre,\nmientras avanzas sin prisa\npor encima de los edificios,\nde las antenas,\nde las cosas que alguna vez importaron demasiado.\n\nNo te pido que te quedes.\nLas cosas del cielo nunca pertenecen a nadie.\n\nSólo sigue ahí,\ngirando sobre nosotros,\nderramando esa luz extraña\nque hace que por unos segundos\ntodo parezca menos pesado.\n\nPorque quizá eso eres:\n\nuna pausa en medio del universo,\nun resplandor que no necesita explicarse,\nla certeza de que incluso la oscuridad\npuede guardar algo hermoso.\n\nLuna,\n\ncuando el mundo vuelva a hacer demasiado ruido,\ndéjame encontrarte arriba,\nquieta entre las estrellas,\n\ncomo si todavía quedara\nalgo allá afuera\ncapaz de hacernos mirar al cielo.",
+    "tags": [
+      "luna",
+      "noche",
+      "poesía",
+      "cielo",
+      "silencio",
+      "reflexión"
+    ],
+    "featured": true,
+    "published": true
   }
 ]
