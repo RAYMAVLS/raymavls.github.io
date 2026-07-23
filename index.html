@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Frosty — Archivo personal</title>
+  <title>Frosty's Thoughts</title>
+
   <meta
     name="description"
-    content="Poemas, pensamientos, reflexiones y frases de Frosty."
-  />
-
-  <meta property="og:title" content="Frosty — Archivo personal" />
-  <meta
-    property="og:description"
-    content="Poemas, pensamientos, reflexiones y palabras que alguna vez necesitaron ser escritas."
-  />
-  <meta property="og:type" content="website" />
+    content="Poemas, pensamientos, reflexiones y fragmentos de Frosty."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet"
@@ -28,29 +23,23 @@
     :root {
       --bg: #f3efe6;
       --paper: #faf7f0;
-      --paper-soft: #eee9de;
       --text: #22231f;
       --muted: #74776e;
       --accent: #6d7f86;
       --accent-dark: #52646b;
-      --line: rgba(34, 35, 31, 0.13);
-      --shadow: 0 20px 55px rgba(40, 42, 38, 0.08);
-      --header-bg: rgba(243, 239, 230, 0.83);
-      --selection: #cbd6d8;
+      --line: rgba(34,35,31,.13);
+      --header: rgba(243,239,230,.86);
     }
 
     body.dark {
       --bg: #171918;
       --paper: #1e211f;
-      --paper-soft: #242825;
       --text: #e8e5dc;
       --muted: #9fa49d;
       --accent: #9db0b5;
       --accent-dark: #bed0d4;
-      --line: rgba(255, 255, 255, 0.1);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
-      --header-bg: rgba(23, 25, 24, 0.84);
-      --selection: #516269;
+      --line: rgba(255,255,255,.10);
+      --header: rgba(23,25,24,.88);
     }
 
     * {
@@ -63,16 +52,25 @@
 
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at top left, rgba(109, 127, 134, 0.08), transparent 30%),
-        var(--bg);
       color: var(--text);
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(109,127,134,.09),
+          transparent 34%
+        ),
+        var(--bg);
+
       font-family: "DM Sans", sans-serif;
-      transition: background 0.35s ease, color 0.35s ease;
+
+      transition:
+        background .3s ease,
+        color .3s ease;
     }
 
     ::selection {
-      background: var(--selection);
+      background: var(--accent);
+      color: var(--bg);
     }
 
     a {
@@ -85,511 +83,593 @@
       font: inherit;
     }
 
-    button {
-      color: inherit;
-    }
-
     .container {
       width: min(1180px, calc(100% - 42px));
-      margin: 0 auto;
+      margin: auto;
     }
+
+    /* NAV */
 
     header {
       position: sticky;
       top: 0;
       z-index: 50;
+
+      background: var(--header);
+
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      background: var(--header-bg);
+
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
       min-height: 76px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+
+      gap: 20px;
     }
 
     .brand {
       font-family: "Cormorant Garamond", serif;
-      font-size: 30px;
+      font-size: 29px;
       font-weight: 600;
-      letter-spacing: -0.02em;
+      letter-spacing: -.03em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
-      font-size: 13px;
+      gap: 26px;
+
       color: var(--muted);
+      font-size: 13px;
     }
 
     .nav-links a {
-      position: relative;
-      transition: color 0.25s ease;
+      transition: color .2s;
     }
 
     .nav-links a:hover {
       color: var(--text);
     }
 
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      height: 1px;
-      width: 0;
-      background: var(--accent);
-      bottom: -6px;
-      left: 0;
-      transition: width 0.25s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .theme-button {
-      border: 1px solid var(--line);
-      background: transparent;
+    .theme {
       width: 40px;
       height: 40px;
+
       border-radius: 50%;
+      border: 1px solid var(--line);
+
+      background: transparent;
+      color: var(--text);
+
       cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    .theme-button:hover {
-      transform: translateY(-2px);
-      background: var(--paper);
-    }
+    /* HERO */
 
     .hero {
-      min-height: 82vh;
+      min-height: 83vh;
+
       display: flex;
       align-items: center;
-      border-bottom: 1px solid var(--line);
+
       position: relative;
       overflow: hidden;
+
+      border-bottom: 1px solid var(--line);
     }
 
     .hero::after {
       content: "F";
+
       position: absolute;
-      right: -40px;
-      bottom: -160px;
+      right: -30px;
+      bottom: -180px;
+
       font-family: "Cormorant Garamond", serif;
-      font-size: min(58vw, 710px);
-      line-height: 1;
+      font-size: min(60vw, 720px);
+
       color: var(--accent);
-      opacity: 0.045;
+      opacity: .045;
+
       pointer-events: none;
-      user-select: none;
     }
 
     .hero-content {
-      width: min(820px, 100%);
-      padding: 95px 0 110px;
+      max-width: 900px;
+      padding: 100px 0 115px;
+
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
     .eyebrow {
-      color: var(--accent-dark);
-      text-transform: uppercase;
-      letter-spacing: 0.19em;
-      font-size: 11px;
-      font-weight: 600;
       margin-bottom: 24px;
+
+      color: var(--accent-dark);
+
+      text-transform: uppercase;
+      letter-spacing: .2em;
+
+      font-size: 10px;
+      font-weight: 600;
     }
 
     .hero h1 {
       margin: 0;
+
       font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(67px, 11vw, 145px);
+      line-height: .82;
+
+      letter-spacing: -.055em;
       font-weight: 500;
-      font-size: clamp(76px, 13vw, 155px);
-      letter-spacing: -0.055em;
-      line-height: 0.8;
     }
 
-    .hero-line {
+    .hero h1 span {
+      display: block;
+      color: var(--accent-dark);
+      font-style: italic;
+      font-size: .75em;
+    }
+
+    .line {
       width: 70px;
       height: 1px;
+
       background: var(--accent);
-      margin: 38px 0;
+
+      margin: 40px 0;
     }
 
-    .hero-text {
+    .hero-quote {
+      max-width: 780px;
+
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(26px, 3.5vw, 43px);
-      line-height: 1.14;
-      max-width: 740px;
-      font-weight: 400;
-    }
 
-    .hero-text em {
-      color: var(--accent-dark);
+      font-size: clamp(25px, 3.4vw, 42px);
+      line-height: 1.15;
     }
 
     .hero-description {
-      color: var(--muted);
       max-width: 580px;
-      line-height: 1.75;
+
       margin-top: 25px;
+
+      color: var(--muted);
+
       font-size: 14px;
+      line-height: 1.8;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      margin-top: 38px;
-      flex-wrap: wrap;
-    }
+    .cta {
+      display: inline-block;
 
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 48px;
-      padding: 0 22px;
+      margin-top: 35px;
+      padding: 14px 23px;
+
       border-radius: 100px;
-      border: 1px solid var(--line);
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
+
+      background: var(--text);
+      color: var(--bg);
+
       font-size: 13px;
     }
 
-    .button.primary {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
+    /* GENERAL */
 
     section {
       padding: 100px 0;
     }
 
-    .section-heading {
+    .section-head {
       display: flex;
-      justify-content: space-between;
-      gap: 20px;
       align-items: end;
-      margin-bottom: 44px;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      margin-bottom: 45px;
     }
 
-    .section-heading h2 {
+    .section-head h2 {
+      margin: 0;
+
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 6vw, 72px);
+
+      font-size: clamp(45px, 6vw, 75px);
       font-weight: 500;
-      margin: 0;
-      line-height: 0.95;
-      letter-spacing: -0.035em;
+      letter-spacing: -.04em;
+      line-height: .9;
     }
 
-    .section-heading p {
+    .section-head p {
+      max-width: 430px;
+
       margin: 0;
+
       color: var(--muted);
-      max-width: 420px;
+
       font-size: 13px;
       line-height: 1.7;
     }
 
+    /* SEARCH */
+
     .controls {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 20px;
-      margin: 35px 0;
+
       align-items: center;
+      gap: 25px;
+
+      margin-bottom: 35px;
     }
 
-    .search {
+    #search {
       width: 100%;
+
+      padding: 14px 0;
+
       background: transparent;
+
       color: var(--text);
+
       border: none;
       border-bottom: 1px solid var(--line);
+
       outline: none;
-      padding: 14px 0;
+
       font-family: "Cormorant Garamond", serif;
       font-size: 21px;
     }
 
-    .search::placeholder {
+    #search::placeholder {
       color: var(--muted);
     }
 
     .filters {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
     }
 
     .filter {
-      border: 1px solid var(--line);
-      background: transparent;
       padding: 9px 14px;
+
+      border: 1px solid var(--line);
       border-radius: 100px;
-      cursor: pointer;
+
+      background: transparent;
       color: var(--muted);
-      font-size: 12px;
-      transition: 0.2s ease;
+
+      font-size: 11px;
+
+      cursor: pointer;
     }
 
     .filter.active,
     .filter:hover {
-      background: var(--text);
       color: var(--bg);
+      background: var(--text);
       border-color: var(--text);
     }
 
-    .posts {
+    /* POSTS */
+
+    #posts {
       border-top: 1px solid var(--line);
     }
 
-    .post-card {
+    .post {
       display: grid;
-      grid-template-columns: 170px 1fr 90px;
+      grid-template-columns: 180px 1fr 70px;
+
       gap: 25px;
-      padding: 34px 0;
+
+      padding: 35px 0;
+
       border-bottom: 1px solid var(--line);
+
       cursor: pointer;
-      transition: padding 0.25s ease;
+
+      transition: padding .2s;
     }
 
-    .post-card:hover {
+    .post:hover {
       padding-left: 10px;
       padding-right: 10px;
     }
 
     .post-meta {
+      padding-top: 7px;
+
       color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.08em;
+
+      font-size: 10px;
+
       text-transform: uppercase;
-      padding-top: 8px;
+      letter-spacing: .1em;
+
+      line-height: 1.7;
     }
 
-    .post-card h3 {
+    .post h3 {
       margin: 0 0 10px;
+
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(27px, 3vw, 39px);
+
+      font-size: clamp(27px, 3vw, 40px);
       font-weight: 500;
+
       line-height: 1;
     }
 
-    .post-card p {
-      margin: 0;
-      color: var(--muted);
+    .post p {
       max-width: 680px;
-      line-height: 1.65;
+
+      margin: 0;
+
+      color: var(--muted);
+
       font-size: 13px;
+      line-height: 1.7;
     }
 
-    .post-arrow {
+    .arrow {
       display: flex;
       justify-content: flex-end;
       align-items: center;
+
       color: var(--accent-dark);
-      font-size: 25px;
+
+      font-size: 23px;
     }
 
-    .empty {
-      padding: 70px 0;
+    .empty,
+    .loading {
+      padding: 60px 0;
+
       color: var(--muted);
+
       font-family: "Cormorant Garamond", serif;
       font-size: 28px;
-      display: none;
     }
+
+    /* QUOTE */
 
     .quote-section {
       background: var(--paper);
+
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
     .quote {
-      max-width: 880px;
+      max-width: 900px;
+
       margin: auto;
-      padding: 20px 0;
+
       text-align: center;
     }
 
-    .quote-mark {
+    .quote-symbol {
       color: var(--accent);
       font-size: 30px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .quote p {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(31px, 5vw, 54px);
-      line-height: 1.15;
       margin: 0;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(31px, 5vw, 55px);
+      line-height: 1.14;
     }
 
     .quote span {
       display: block;
-      margin-top: 27px;
+
+      margin-top: 28px;
+
       color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 0.16em;
+
       text-transform: uppercase;
+      letter-spacing: .17em;
+
+      font-size: 10px;
     }
 
-    .about-grid {
+    /* ABOUT */
+
+    .about {
       display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      grid-template-columns: .8fr 1.2fr;
+
       gap: 75px;
-      align-items: start;
     }
 
-    .about-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(48px, 7vw, 80px);
-      line-height: 0.95;
+    .about h2 {
       margin: 0;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(48px, 7vw, 80px);
       font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: .95;
     }
 
-    .about-copy {
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 14px;
+    .about-text {
       max-width: 650px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+      line-height: 1.9;
     }
 
-    .about-copy strong {
+    .about-text strong {
       color: var(--text);
       font-weight: 500;
     }
 
+    /* FOOTER */
+
     footer {
-      border-top: 1px solid var(--line);
       padding: 40px 0;
+
+      border-top: 1px solid var(--line);
     }
 
-    .footer-inner {
+    .footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 25px;
+
+      gap: 20px;
+
       color: var(--muted);
+
       font-size: 11px;
     }
 
-    .footer-logo {
-      font-family: "Cormorant Garamond", serif;
+    .footer-name {
       color: var(--text);
+
+      font-family: "Cormorant Garamond", serif;
       font-size: 25px;
     }
 
-    /* MODAL DE LECTURA */
+    /* READER */
 
-    .reader {
+    #reader {
       position: fixed;
       inset: 0;
-      background: var(--bg);
+
       z-index: 100;
+
       overflow-y: auto;
+
+      background: var(--bg);
+
       opacity: 0;
       pointer-events: none;
-      transform: translateY(15px);
-      transition: 0.3s ease;
+
+      transform: translateY(10px);
+
+      transition: .25s;
     }
 
-    .reader.open {
+    #reader.open {
       opacity: 1;
       pointer-events: all;
       transform: translateY(0);
     }
 
-    .reader-top {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--line);
+    .reader-nav {
       position: sticky;
       top: 0;
-      background: var(--header-bg);
+
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+
+      background: var(--header);
+
+      border-bottom: 1px solid var(--line);
+
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      z-index: 3;
     }
 
-    .reader-close {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
+    .reader-nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #closeReader {
+      border: 0;
+
+      background: transparent;
       color: var(--muted);
-    }
 
-    .reader-close:hover {
-      color: var(--text);
+      cursor: pointer;
+
+      font-size: 12px;
     }
 
     .article {
       width: min(760px, calc(100% - 42px));
-      margin: 0 auto;
+
+      margin: auto;
+
       padding: 85px 0 120px;
     }
 
-    .article-category {
-      text-transform: uppercase;
-      letter-spacing: 0.17em;
-      font-size: 10px;
+    #articleCategory {
       color: var(--accent-dark);
+
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+
       font-weight: 600;
     }
 
-    .article h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(52px, 8vw, 92px);
-      font-weight: 500;
-      line-height: 0.95;
+    #articleTitle {
       margin: 20px 0 18px;
-      letter-spacing: -0.04em;
-    }
 
-    .article-date {
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 65px;
-    }
-
-    .article-body {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(23px, 3vw, 28px);
-      line-height: 1.7;
-      white-space: pre-line;
+
+      font-size: clamp(50px, 8vw, 90px);
+
+      line-height: .95;
+
+      letter-spacing: -.045em;
+      font-weight: 500;
     }
 
-    .article-signature {
+    #articleDate {
+      margin-bottom: 60px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    #articleBody {
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: clamp(22px, 3vw, 28px);
+      line-height: 1.7;
+
+      white-space: pre-wrap;
+    }
+
+    .signature {
       margin-top: 75px;
-      padding-top: 35px;
+      padding-top: 32px;
+
       border-top: 1px solid var(--line);
+
       font-family: "Cormorant Garamond", serif;
       font-size: 28px;
     }
 
-    .article-location {
-      color: var(--muted);
-      font-family: "DM Sans", sans-serif;
-      font-size: 11px;
-      margin-top: 7px;
-      letter-spacing: 0.05em;
-    }
+    /* MOBILE */
 
     @media (max-width: 800px) {
       .container {
-        width: min(100% - 30px, 1180px);
+        width: calc(100% - 30px);
       }
 
       .nav {
@@ -612,11 +692,11 @@
         padding: 75px 0;
       }
 
-      .section-heading {
+      .section-head {
         display: block;
       }
 
-      .section-heading p {
+      .section-head p {
         margin-top: 18px;
       }
 
@@ -626,46 +706,33 @@
 
       .filters {
         overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 4px;
       }
 
       .filter {
         flex-shrink: 0;
       }
 
-      .post-card {
-        grid-template-columns: 1fr 34px;
-        gap: 10px;
+      .post {
+        grid-template-columns: 1fr 35px;
       }
 
       .post-meta {
         grid-column: 1 / -1;
-        padding: 0;
       }
 
-      .post-content {
-        grid-column: 1;
-      }
-
-      .post-arrow {
+      .arrow {
         grid-column: 2;
         grid-row: 2;
       }
 
-      .about-grid {
+      .about {
         grid-template-columns: 1fr;
         gap: 35px;
       }
 
-      .footer-inner {
-        flex-direction: column;
+      .footer {
         align-items: flex-start;
-      }
-
-      .article {
-        width: calc(100% - 30px);
-        padding-top: 60px;
+        flex-direction: column;
       }
     }
   </style>
@@ -673,473 +740,635 @@
 
 <body>
 
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#inicio">Frosty.</a>
+<header>
+  <div class="container nav">
 
-      <nav class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#escritos">Escritos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-      </nav>
+    <a class="brand" href="#inicio">
+      Frosty's Thoughts
+    </a>
 
-      <button
-        class="theme-button"
-        id="themeButton"
-        aria-label="Cambiar modo claro u oscuro"
-      >
-        ◐
-      </button>
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#escritos">Escritos</a>
+      <a href="#sobre">Sobre mí</a>
+    </nav>
+
+    <button class="theme" id="themeButton" aria-label="Cambiar tema">
+      ◐
+    </button>
+
+  </div>
+</header>
+
+
+<main>
+
+<section class="hero" id="inicio">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        The personal archive of Frosty · MMXXVI
+      </div>
+
+      <h1>
+        Frosty's
+        <span>Thoughts.</span>
+      </h1>
+
+      <div class="line"></div>
+
+      <div class="hero-quote">
+        Un lugar para aquello que alguna vez
+        <em>necesitó existir fuera de mi mente.</em>
+      </div>
+
+      <div class="hero-description">
+        Poemas, pensamientos, reflexiones, frases y fragmentos.
+        Un pequeño archivo de las cosas que siento,
+        pienso y decido conservar.
+      </div>
+
+      <a href="#escritos" class="cta">
+        Entrar a mis pensamientos ↓
+      </a>
+
     </div>
-  </header>
 
-  <main>
+  </div>
 
-    <section class="hero" id="inicio">
-      <div class="container">
-        <div class="hero-content">
-          <div class="eyebrow">Archivo personal · MMXXVI</div>
-
-          <h1>Frosty.</h1>
-
-          <div class="hero-line"></div>
-
-          <div class="hero-text">
-            Un lugar para aquello que no quiero dejar
-            <em>solamente en mi cabeza.</em>
-          </div>
-
-          <p class="hero-description">
-            Poemas, pensamientos, reflexiones y palabras que alguna vez
-            necesitaron ser escritas.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button primary" href="#escritos">
-              Explorar escritos ↓
-            </a>
-
-            <a class="button" href="#sobre-mi">
-              Acerca del archivo
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+</section>
 
 
-    <section id="escritos">
-      <div class="container">
+<section id="escritos">
 
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">Archivo</div>
-            <h2>Escritos</h2>
-          </div>
+  <div class="container">
 
-          <p>
-            Una colección de palabras nacidas en distintos momentos,
-            conservadas aquí para que no se pierdan con ellos.
-          </p>
-        </div>
-
-        <div class="controls">
-          <input
-            class="search"
-            id="searchInput"
-            type="search"
-            placeholder="Buscar entre mis palabras..."
-            autocomplete="off"
-          >
-
-          <div class="filters">
-            <button class="filter active" data-filter="Todos">Todos</button>
-            <button class="filter" data-filter="Poema">Poemas</button>
-            <button class="filter" data-filter="Reflexión">Reflexiones</button>
-            <button class="filter" data-filter="Pensamiento">Pensamientos</button>
-            <button class="filter" data-filter="Frase">Frases</button>
-          </div>
-        </div>
-
-        <div class="posts" id="posts"></div>
-
-        <div class="empty" id="emptyState">
-          No encontré ningún escrito con esas palabras.
-        </div>
-
-      </div>
-    </section>
-
-
-    <section class="quote-section">
-      <div class="container">
-        <div class="quote">
-          <div class="quote-mark">✦</div>
-
-          <p>
-            «Hay pensamientos que desaparecen si no encuentran
-            una página donde quedarse.»
-          </p>
-
-          <span>Frosty</span>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="sobre-mi">
-      <div class="container">
-
-        <div class="about-grid">
-
-          <div>
-            <div class="eyebrow">Sobre este lugar</div>
-            <h2 class="about-title">
-              Mi pequeño<br>archivo.
-            </h2>
-          </div>
-
-          <div class="about-copy">
-            <p>
-              <strong>Frosty</strong> es un espacio para guardar aquello
-              que alguna vez pasó por mi mente y mereció quedarse un poco más.
-            </p>
-
-            <p>
-              Aquí conviven poemas, pensamientos, reflexiones, fragmentos
-              y frases sin la obligación de pertenecer a una sola idea.
-              Algunas palabras nacen de la emoción; otras, de la razón.
-              Algunas buscan respuestas y otras simplemente existen.
-            </p>
-
-            <p>
-              Este archivo no pretende estar terminado.
-              Está vivo, y seguirá creciendo conmigo.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-
-  <footer>
-    <div class="container footer-inner">
-      <div class="footer-logo">Frosty.</div>
+    <div class="section-head">
 
       <div>
-        © <span id="year"></span> Frosty · Todos los derechos reservados.
+        <div class="eyebrow">The archive</div>
+        <h2>Mis escritos</h2>
       </div>
+
+      <p>
+        Algunas cosas nacieron como poemas.
+        Otras como simples pensamientos.
+        Todas encontraron aquí un lugar donde quedarse.
+      </p>
+
     </div>
-  </footer>
 
 
-  <!-- LECTOR DE ESCRITOS -->
-  <div class="reader" id="reader">
-    <div class="reader-top">
-      <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-        <div class="brand">Frosty.</div>
+    <div class="controls">
 
-        <button class="reader-close" id="closeReader">
-          ← Volver al archivo
+      <input
+        id="search"
+        placeholder="Buscar entre mis pensamientos..."
+        autocomplete="off"
+      >
+
+      <div class="filters">
+
+        <button class="filter active" data-category="Todos">
+          Todos
         </button>
+
+        <button class="filter" data-category="Poema">
+          Poemas
+        </button>
+
+        <button class="filter" data-category="Pensamiento">
+          Pensamientos
+        </button>
+
+        <button class="filter" data-category="Reflexión">
+          Reflexiones
+        </button>
+
+        <button class="filter" data-category="Frase">
+          Frases
+        </button>
+
+        <button class="filter" data-category="Fragmento">
+          Fragmentos
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div id="posts">
+      <div class="loading">
+        Abriendo el archivo de Frosty...
       </div>
     </div>
 
-    <article class="article">
-      <div class="article-category" id="articleCategory"></div>
+  </div>
 
-      <h1 id="articleTitle"></h1>
+</section>
 
-      <div class="article-date" id="articleDate"></div>
 
-      <div class="article-body" id="articleBody"></div>
+<section class="quote-section">
 
-      <div class="article-signature">
-        — Frosty
+  <div class="container">
 
-        <div class="article-location" id="articleLocation"></div>
+    <div class="quote">
+
+      <div class="quote-symbol">✦</div>
+
+      <p>
+        «Hay pensamientos que desaparecen
+        si no encuentran una página donde quedarse.»
+      </p>
+
+      <span>Frosty</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="sobre">
+
+  <div class="container about">
+
+    <div>
+
+      <div class="eyebrow">
+        About this place
       </div>
-    </article>
+
+      <h2>
+        Dentro de<br>
+        mi cabeza.
+      </h2>
+
+    </div>
+
+
+    <div class="about-text">
+
+      <p>
+        <strong>Frosty's Thoughts</strong> es mi pequeño archivo personal.
+      </p>
+
+      <p>
+        Aquí guardo poemas, reflexiones, pensamientos,
+        frases y fragmentos que alguna vez pasaron por mi mente
+        y que, por alguna razón, decidí no dejar desaparecer.
+      </p>
+
+      <p>
+        No todo lo que aparece aquí pretende dar una respuesta.
+        Algunas cosas son sentimientos, otras preguntas;
+        algunas nacieron en segundos y otras necesitaron mucho más tiempo.
+      </p>
+
+      <p>
+        Este archivo nunca estará realmente terminado.
+        Crecerá conmigo.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer">
+
+    <div class="footer-name">
+      Frosty's Thoughts.
+    </div>
+
+    <div>
+      © <span id="year"></span> Frosty · All thoughts reserved.
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- LECTOR -->
+
+<div id="reader">
+
+  <div class="reader-nav">
+
+    <div class="container reader-nav-inner">
+
+      <div class="brand">
+        Frosty's Thoughts
+      </div>
+
+      <button id="closeReader">
+        ← Volver
+      </button>
+
+    </div>
+
   </div>
 
 
-  <script>
+  <article class="article">
 
-    /*
-    ==========================================================
-       ✦ TUS ESCRITOS ✦
+    <div id="articleCategory"></div>
 
-       Esta es prácticamente la única parte que tendrás que
-       editar cuando quieras agregar algo nuevo.
+    <h1 id="articleTitle"></h1>
 
-       DUPLICA uno de estos bloques y cambia:
+    <div id="articleDate"></div>
 
-       title      = título
-       category   = Poema / Reflexión / Pensamiento / Frase
-       date       = fecha visible
-       location   = lugar (puedes dejarlo vacío)
-       excerpt    = texto corto que aparecerá en portada
-       body       = texto completo
-    ==========================================================
-    */
+    <div id="articleBody"></div>
 
-    const writings = [
+    <div class="signature">
+      — Frosty
+    </div>
 
-      {
-        title: "La legitimidad de un Estado",
-        category: "Reflexión",
-        date: "21 de julio de 2026",
-        location: "",
-        excerpt:
-          "La legitimidad no nace únicamente del ejercicio del poder, sino de la autoridad moral que una sociedad decide reconocer.",
+  </article>
 
-        body: `La legitimidad de un Estado no nace de la fuerza con la que sus gobernantes ejercen el poder, sino de la autoridad moral que emana de la confianza de su ciudadanía.
-
-Y esa confianza no se impone, se merece: se construye con instituciones íntegras, justicia imparcial, responsabilidad pública y la certeza de que nadie está por encima de la ley.
-
-Porque el poder, cuando se entiende como privilegio, degrada a la República; pero cuando se asume como deber, se convierte en la más alta herramienta para proteger la libertad, defender la dignidad humana y conducir a la nación hacia el bien común.`
-      },
+</div>
 
 
-      {
-        title: "Después del silencio",
-        category: "Poema",
-        date: "18 de julio de 2026",
-        location: "",
-        excerpt:
-          "Hay silencios que no significan ausencia. A veces son simplemente palabras que todavía no aprendieron a existir.",
 
-        body: `Hay silencios
-que no significan ausencia.
+<script>
 
-Hay palabras
-que tardan años
-en encontrar una voz.
-
-Y hay personas
-que permanecen,
-incluso cuando el tiempo
-ha dejado de nombrarlas.
-
-Quizá recordar
-sea solamente eso:
-
-negarse,
-por un instante,
-a dejar desaparecer
-lo que alguna vez nos hizo sentir.`
-      },
+let writings = [];
+let activeCategory = "Todos";
 
 
-      {
-        title: "Convicción antes que poder",
-        category: "Pensamiento",
-        date: "14 de julio de 2026",
-        location: "",
-        excerpt:
-          "No todo aquello que puede hacerse debe hacerse. El poder sin convicción termina convertido en simple ambición.",
+const posts = document.getElementById("posts");
+const search = document.getElementById("search");
 
-        body: `El poder puede abrir puertas, imponer decisiones y transformar instituciones.
+const reader = document.getElementById("reader");
 
-Pero jamás debería ser un fin en sí mismo.
+const articleCategory =
+  document.getElementById("articleCategory");
 
-Porque cuando la ambición ocupa el lugar de la convicción, gobernar deja de ser servicio y comienza a convertirse en privilegio.
+const articleTitle =
+  document.getElementById("articleTitle");
 
-Antes que poder, convicción.
-Antes que autoridad, deber.`
-      },
+const articleDate =
+  document.getElementById("articleDate");
+
+const articleBody =
+  document.getElementById("articleBody");
 
 
-      {
-        title: "Sobre permanecer",
-        category: "Frase",
-        date: "10 de julio de 2026",
-        location: "",
-        excerpt:
-          "Tal vez permanecer no significa quedarse para siempre, sino haber dejado algo imposible de borrar.",
+/*
+  CARGAR PUBLICACIONES DESDE
+  data/writings.json
+*/
 
-        body: `«Tal vez permanecer no significa quedarse para siempre, sino haber dejado algo imposible de borrar.»`
+async function loadWritings() {
+
+  try {
+
+    const response =
+      await fetch(
+        "./data/writings.json?v=" + Date.now()
+      );
+
+    if (!response.ok) {
+      throw new Error("No se pudo cargar el archivo");
+    }
+
+    writings = await response.json();
+
+    writings.sort(
+      (a, b) =>
+        new Date(b.date) - new Date(a.date)
+    );
+
+    renderPosts();
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+    posts.innerHTML = `
+      <div class="empty">
+        Todavía no hay publicaciones en este archivo.
+      </div>
+    `;
+
+  }
+
+}
+
+
+/*
+  FORMATO DE FECHA
+*/
+
+function formatDate(date) {
+
+  if (!date) return "";
+
+  const cleanDate =
+    date.includes("T")
+      ? date.split("T")[0]
+      : date;
+
+  const [year, month, day] =
+    cleanDate.split("-");
+
+  const localDate =
+    new Date(
+      Number(year),
+      Number(month) - 1,
+      Number(day)
+    );
+
+  return localDate.toLocaleDateString(
+    "es-MX",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }
+  );
+
+}
+
+
+/*
+  MOSTRAR PUBLICACIONES
+*/
+
+function renderPosts() {
+
+  const query =
+    search.value.trim().toLowerCase();
+
+
+  const filtered =
+    writings.filter(item => {
+
+      if (item.published === false) {
+        return false;
       }
 
-    ];
+      const matchesCategory =
+        activeCategory === "Todos" ||
+        item.category === activeCategory;
 
 
-    const postsContainer = document.getElementById("posts");
-    const searchInput = document.getElementById("searchInput");
-    const filterButtons = document.querySelectorAll(".filter");
-    const emptyState = document.getElementById("emptyState");
-
-    const reader = document.getElementById("reader");
-    const closeReader = document.getElementById("closeReader");
-
-    const articleTitle = document.getElementById("articleTitle");
-    const articleCategory = document.getElementById("articleCategory");
-    const articleDate = document.getElementById("articleDate");
-    const articleBody = document.getElementById("articleBody");
-    const articleLocation = document.getElementById("articleLocation");
-
-    let activeFilter = "Todos";
+      const text = `
+        ${item.title || ""}
+        ${item.category || ""}
+        ${item.excerpt || ""}
+        ${item.body || ""}
+        ${(item.tags || []).join(" ")}
+      `.toLowerCase();
 
 
-    function renderPosts() {
-
-      const query = searchInput.value.trim().toLowerCase();
-
-      const filtered = writings.filter(item => {
-
-        const matchesCategory =
-          activeFilter === "Todos" ||
-          item.category === activeFilter;
-
-        const searchableText = `
-          ${item.title}
-          ${item.category}
-          ${item.excerpt}
-          ${item.body}
-        `.toLowerCase();
-
-        const matchesSearch = searchableText.includes(query);
-
-        return matchesCategory && matchesSearch;
-      });
-
-
-      postsContainer.innerHTML = "";
-
-      emptyState.style.display =
-        filtered.length === 0 ? "block" : "none";
-
-
-      filtered.forEach(item => {
-
-        const card = document.createElement("article");
-        card.className = "post-card";
-
-        card.innerHTML = `
-          <div class="post-meta">
-            ${item.date}<br>
-            ${item.category}
-          </div>
-
-          <div class="post-content">
-            <h3>${item.title}</h3>
-            <p>${item.excerpt}</p>
-          </div>
-
-          <div class="post-arrow">↗</div>
-        `;
-
-        card.addEventListener("click", () => openArticle(item));
-
-        postsContainer.appendChild(card);
-      });
-    }
-
-
-    function openArticle(item) {
-
-      articleCategory.textContent = item.category;
-      articleTitle.textContent = item.title;
-      articleDate.textContent = item.date;
-      articleBody.textContent = item.body;
-
-      if (item.location) {
-        articleLocation.textContent =
-          `${item.location} · ${item.date}`;
-      } else {
-        articleLocation.textContent = item.date;
-      }
-
-      reader.classList.add("open");
-
-      document.body.style.overflow = "hidden";
-      reader.scrollTop = 0;
-    }
-
-
-    function closeArticle() {
-      reader.classList.remove("open");
-      document.body.style.overflow = "";
-    }
-
-
-    closeReader.addEventListener("click", closeArticle);
-
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") {
-        closeArticle();
-      }
-    });
-
-
-    filterButtons.forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        filterButtons.forEach(btn =>
-          btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        activeFilter = button.dataset.filter;
-
-        renderPosts();
-      });
-
-    });
-
-
-    searchInput.addEventListener("input", renderPosts);
-
-
-    /*
-       MODO OSCURO
-    */
-
-    const themeButton = document.getElementById("themeButton");
-
-    const savedTheme = localStorage.getItem("frosty-theme");
-
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark");
-    }
-
-
-    themeButton.addEventListener("click", () => {
-
-      document.body.classList.toggle("dark");
-
-      const isDark =
-        document.body.classList.contains("dark");
-
-      localStorage.setItem(
-        "frosty-theme",
-        isDark ? "dark" : "light"
+      return (
+        matchesCategory &&
+        text.includes(query)
       );
 
     });
 
 
-    /*
-       AÑO AUTOMÁTICO
-    */
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+  posts.innerHTML = "";
 
 
-    /*
-       PRIMER RENDER
-    */
+  if (!filtered.length) {
 
-    renderPosts();
+    posts.innerHTML = `
+      <div class="empty">
+        No encontré nada por aquí.
+      </div>
+    `;
 
-  </script>
+    return;
+
+  }
+
+
+  filtered.forEach(item => {
+
+    const post =
+      document.createElement("article");
+
+    post.className = "post";
+
+
+    post.innerHTML = `
+
+      <div class="post-meta">
+
+        ${formatDate(item.date)}
+
+        <br>
+
+        ${item.category || "Escrito"}
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          ${escapeHTML(item.title || "Sin título")}
+        </h3>
+
+        <p>
+          ${escapeHTML(item.excerpt || "")}
+        </p>
+
+      </div>
+
+
+      <div class="arrow">
+        ↗
+      </div>
+
+    `;
+
+
+    post.addEventListener(
+      "click",
+      () => openArticle(item)
+    );
+
+
+    posts.appendChild(post);
+
+  });
+
+}
+
+
+/*
+  ABRIR ESCRITO
+*/
+
+function openArticle(item) {
+
+  articleCategory.textContent =
+    item.category || "Escrito";
+
+  articleTitle.textContent =
+    item.title || "Sin título";
+
+  articleDate.textContent =
+    formatDate(item.date);
+
+  articleBody.textContent =
+    item.body || "";
+
+  reader.classList.add("open");
+
+  reader.scrollTop = 0;
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+/*
+  CERRAR LECTOR
+*/
+
+function closeArticle() {
+
+  reader.classList.remove("open");
+
+  document.body.style.overflow = "";
+
+}
+
+
+document
+  .getElementById("closeReader")
+  .addEventListener(
+    "click",
+    closeArticle
+  );
+
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (event.key === "Escape") {
+      closeArticle();
+    }
+
+  }
+);
+
+
+/*
+  FILTROS
+*/
+
+document
+  .querySelectorAll(".filter")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        document
+          .querySelectorAll(".filter")
+          .forEach(
+            b => b.classList.remove("active")
+          );
+
+        button.classList.add("active");
+
+        activeCategory =
+          button.dataset.category;
+
+        renderPosts();
+
+      }
+    );
+
+  });
+
+
+search.addEventListener(
+  "input",
+  renderPosts
+);
+
+
+/*
+  DARK MODE
+*/
+
+const themeButton =
+  document.getElementById("themeButton");
+
+
+if (
+  localStorage.getItem("frosty-theme")
+  === "dark"
+) {
+  document.body.classList.add("dark");
+}
+
+
+themeButton.addEventListener(
+  "click",
+  () => {
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+      "frosty-theme",
+
+      document.body.classList.contains("dark")
+        ? "dark"
+        : "light"
+    );
+
+  }
+);
+
+
+/*
+  SEGURIDAD BÁSICA PARA TÍTULOS
+*/
+
+function escapeHTML(value) {
+
+  const div =
+    document.createElement("div");
+
+  div.textContent = value;
+
+  return div.innerHTML;
+
+}
+
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+loadWritings();
+
+</script>
 
 </body>
 </html>
