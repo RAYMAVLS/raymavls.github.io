@@ -1,0 +1,64 @@
+media: media
+
+content:
+  - name: writings
+    label: Publicaciones
+    type: file
+    path: data/writings.json
+    format: json
+    list: true
+
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+        description: El título que aparecerá públicamente.
+
+      - name: category
+        label: Tipo de escrito
+        type: select
+        required: true
+        options:
+          values:
+            - Poema
+            - Pensamiento
+            - Reflexión
+            - Frase
+            - Fragmento
+
+      - name: date
+        label: Fecha
+        type: date
+        required: true
+
+      - name: excerpt
+        label: Introducción
+        type: text
+        required: true
+        description: Un fragmento corto que aparecerá en el archivo antes de abrir el escrito.
+
+      - name: body
+        label: Escrito
+        type: text
+        required: true
+        description: Aquí va el poema, pensamiento, reflexión o texto completo.
+
+      - name: tags
+        label: Etiquetas
+        type: string
+        list: true
+        description: Palabras relacionadas con el escrito.
+
+      - name: featured
+        label: Destacado
+        type: boolean
+        description: Marca esto para señalar que es uno de tus escritos destacados.
+
+      - name: published
+        label: Publicado
+        type: boolean
+        description: Desactívalo para conservar el escrito sin mostrarlo públicamente.
+
+settings:
+  hide: true
