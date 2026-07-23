@@ -1,1 +1,15 @@
-
+[
+  {
+    "title": "Bienvenido a Frosty's Thoughts",
+    "category": "Pensamiento",
+    "date": "2026-07-23",
+    "excerpt": "Todo archivo comienza con una primera palabra.",
+    "body": "Este es el comienzo de Frosty's Thoughts.\n\nUn espacio para guardar poemas, pensamientos, reflexiones, frases y fragmentos que alguna vez necesitaron existir fuera de mi mente.",
+    "tags": [
+      "frosty",
+      "inicio"
+    ],
+    "featured": true,
+    "published": true
+  }
+]
