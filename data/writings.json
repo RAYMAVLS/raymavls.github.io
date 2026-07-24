@@ -28,5 +28,24 @@
     ],
     "featured": true,
     "published": true
+  },
+  {
+    "title": "El poder que no llena",
+    "category": "Reflexión",
+    "date": "2026-07-23",
+    "excerpt": "Una reflexión sobre quienes buscan en el poder aquello que les falta y quienes, en cambio, entienden el gobierno como la responsabilidad de llevar una sociedad hacia todo lo que puede llegar a ser.",
+    "body": "Hay quienes buscan gobernar porque necesitan que el poder llene aquello que nunca pudieron resolver dentro de sí mismos. Confunden autoridad con reconocimiento, obediencia con respeto y permanencia con grandeza. Para ellos, el Estado termina convirtiéndose en un espejo: gobiernan para verse más grandes, no para hacer más grande aquello que gobiernan.\n\nPero existe otra forma de entender el poder.\n\nGobernar también puede nacer de la capacidad de mirar una sociedad y reconocer no solamente lo que es, sino todo lo que todavía puede llegar a ser. Quien verdaderamente sabe gobernar no necesita engrandecerse mediante el cargo, porque comprende que su grandeza jamás debería medirse por cuánto poder concentra, sino por cuánto potencial consigue liberar en los demás.\n\nQuizá esa sea una de las diferencias más profundas entre quien desea el poder y quien comprende el gobierno: el primero contempla una nación y se pregunta qué puede obtener de ella; el segundo contempla sus posibilidades y se pregunta hasta dónde podría llevarlas.\n\nPorque el poder utilizado para llenar un vacío personal jamás encuentra suficiente poder para llenarlo. Siempre necesitará más autoridad, más reconocimiento, más control. En cambio, quien gobierna desde el deber entiende algo mucho más difícil: que alcanzar el poder no es llegar a la cima.\n\nEs recibir, por un instante, la responsabilidad de ayudar a otros a alcanzarla.",
+    "tags": [
+      "Poder",
+      "Gobierno",
+      "Estado",
+      "Liderazgo",
+      "Vocación pública",
+      "Responsabilidad",
+      "Sociedad",
+      "Bien común"
+    ],
+    "featured": true,
+    "published": true
   }
 ]
